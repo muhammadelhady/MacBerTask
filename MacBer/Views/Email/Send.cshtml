@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Send Email";
+}
+@model DAL.Entites.Email
+<h1>@ViewData["Title"]</h1>
+
+
+
+
+<div class="text-center">
+    <div class="mail-list-container">
+        <form class="mail-compose" method="post" action="/email/send">
+            <div class="form-group col-12">
+                <input class="form-control" type="text" required placeholder="Please Enter Recivers Emails Seprated by ;" name="to">
+            </div>
+            <div class="form-group col-12">
+                <input class="form-control" type="text"  placeholder="Subject" name="subject"  value="@Model.Subject">
+            </div>
+            <div class="form-group col-12">
+                <textarea placeholder="Message..."  class="form-group col-12" rows="12" name="message" >@Model.Message</textarea>
+            </div>
+            <div class="form-group col-12">
+                <button type="submit" class="btn btn-primary">Send</button>
+            </div>
+        </form>
+    </div>
+
+
+</div>

@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Email Page";
+}
+@model IEnumerable<DAL.Entites.Email> 
+
+
+<div class="text-center">
+    <div class="mail-list-container">
+        <form class="mail-compose" method="post" action="/email/index">
+            <div class="form-group col-12">
+                <input class="form-control" type="text" placeholder="Subject" name="subject">
+            </div>
+            <div class="form-group col-12">
+                <textarea placeholder="Message..." class="form-group col-12" rows="12" name="message"></textarea>
+            </div>
+            
+            <div class="form-group col-12">
+                <button type="submit" class="btn btn-primary">Save</button>
+            </div>
+        </form>
+    </div>
+    
+    <div class="list-group" id="EmailsListContainer">
+        @foreach (var i in Model)
+        {
+            <a href="/email/Send/@i.Id" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1">@i.Subject</h5>
+                    <small>@i.CreatedAt</small>
+                </div>
+                <p class="mb-1">@i.Message</p>
+            </a>
+        }
+
+
+
+    </div>
+</div>
